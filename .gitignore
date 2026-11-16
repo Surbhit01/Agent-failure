@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.DS_Store
+# docs are not committed for now
+docs/
+# generated run output (keep the folder, ignore the contents)
+traces/*
+!traces/.gitkeep
+outbox/
+*.md
