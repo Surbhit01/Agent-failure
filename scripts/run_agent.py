@@ -8,3 +8,4 @@ for m in result["messages"][2:]:
     print(f"[{m['role']}]", m.get("content") or m.get("tool_calls"))
 print(f"\nstop_reason={result['stop_reason']} steps={result['steps']}")
 print("FINAL:", result["final_answer"])
+print("trace:", result["trace_path"])
