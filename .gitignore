@@ -10,4 +10,4 @@ docs/
 traces/*
 !traces/.gitkeep
 outbox/
-*.md!PROGRESS.md
+*.md
