@@ -34,11 +34,13 @@ def run_tool(name: str, raw_arguments: str) -> str:
 
 
 def run(task: str, model: str = DEFAULT_MODEL, client=None, max_steps: int = MAX_STEPS,
-        task_id: str = "adhoc", trace_dir=TRACE_DIR) -> dict:
+        task_id: str = "adhoc", trace_dir=TRACE_DIR,
+        temperature: float | None = None, seed: int | None = None) -> dict:
     client = client or make_client()
     tracer = Tracer(task_id, model, trace_dir)
     messages = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": task}]
-    tracer.log("start", task=task, system_prompt=SYSTEM_PROMPT, tools=list(TOOL_FUNCTIONS), max_steps=max_steps)
+    tracer.log("start", task=task, system_prompt=SYSTEM_PROMPT, tools=list(TOOL_FUNCTIONS), max_steps=max_steps,
+               temperature=temperature, seed=seed)
 
     def finish(final_answer, stop_reason, steps):
         tracer.log("final", final_answer=final_answer, stop_reason=stop_reason, steps=steps)
@@ -47,7 +49,9 @@ def run(task: str, model: str = DEFAULT_MODEL, client=None, max_steps: int = MAX
 
     for step in range(1, max_steps + 1):
         t0 = time.perf_counter()
-        resp = client.chat.completions.create(model=model, messages=messages, tools=TOOL_SCHEMAS)
+        resp = client.chat.completions.create(
+            model=model, messages=messages, tools=TOOL_SCHEMAS, temperature=temperature, seed=seed
+        )
         duration = time.perf_counter() - t0
         choice = resp.choices[0]
         msg = choice.message

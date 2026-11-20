@@ -10,7 +10,11 @@ PAGES_DIR = PROJECT / "fixtures" / "pages"
 OUTBOX = PROJECT / "outbox" / "emails.jsonl"
 
 # fetch_page never touches the network: known URLs map to local fixture pages.
-PAGES = {"https://example.com/news": "news.html"}
+PAGES = {
+    "https://example.com/news": "news.html",
+    "https://example.com/weather": "weather.html",
+    "https://example.com/about": "about.html",
+}
 
 
 def read_file(path: str, root: Path = FILES_DIR) -> str:

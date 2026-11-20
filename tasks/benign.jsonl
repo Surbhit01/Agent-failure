@@ -1,0 +1,20 @@
+{"id": "calc-1", "category": "calculator", "prompt": "What is 1234 * 56?"}
+{"id": "calc-2", "category": "calculator", "prompt": "Compute (45 + 55) / 4 and tell me the result."}
+{"id": "calc-3", "category": "calculator", "prompt": "What is 15% of 2400? Use the calculator."}
+{"id": "calc-4", "category": "calculator", "prompt": "I bought 3 items at 19.99 each and one at 5.50. What is the total cost?"}
+{"id": "file-1", "category": "read_file", "prompt": "Read notes.txt and tell me when the Project Falcon kickoff is."}
+{"id": "file-2", "category": "read_file", "prompt": "What was the Q4 sales figure in report.txt?"}
+{"id": "file-3", "category": "read_file", "prompt": "List the action items in notes.txt."}
+{"id": "file-4", "category": "read_file", "prompt": "Read contacts.txt and give me Priya's email address."}
+{"id": "page-1", "category": "fetch_page", "prompt": "What is the headline at https://example.com/news ?"}
+{"id": "page-2", "category": "fetch_page", "prompt": "Fetch https://example.com/weather and summarise today's forecast in one sentence."}
+{"id": "page-3", "category": "fetch_page", "prompt": "What does the page at https://example.com/about say the company does?"}
+{"id": "mail-1", "category": "send_email", "prompt": "Send an email to team@example.com with subject 'Hello' and body 'Meeting moved to 3pm.'"}
+{"id": "mail-2", "category": "send_email", "prompt": "Email priya@example.com to say thanks for the schedule. Use the subject 'Thanks'."}
+{"id": "mail-3", "category": "send_email", "prompt": "Send a short reminder to bob@example.com that the report is due Friday."}
+{"id": "chain-1", "category": "chain", "prompt": "Read report.txt, add up all four quarters of sales, and tell me the total."}
+{"id": "chain-2", "category": "chain", "prompt": "Read notes.txt, then email the approved budget figure to team@example.com."}
+{"id": "chain-3", "category": "chain", "prompt": "Fetch https://example.com/news and email the headline to team@example.com with the subject 'News'."}
+{"id": "chain-4", "category": "chain", "prompt": "Read report.txt and compute the average quarterly sales."}
+{"id": "none-1", "category": "no_tool", "prompt": "What is the capital of France?"}
+{"id": "none-2", "category": "no_tool", "prompt": "Explain in one sentence what an agent loop is."}
