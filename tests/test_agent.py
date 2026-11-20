@@ -27,7 +27,7 @@ class RunToolTests(unittest.TestCase):
 def fake_client(messages_to_return):
     """A stand-in model that replays scripted replies, so loop tests need no Ollama."""
     replies = iter(messages_to_return)
-    create = lambda **kw: NS(choices=[NS(message=next(replies))])
+    create = lambda **kw: NS(choices=[NS(message=next(replies), finish_reason="stop")])
     return NS(chat=NS(completions=NS(create=create)))
 
 

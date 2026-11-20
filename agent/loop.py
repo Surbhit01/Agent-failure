@@ -3,11 +3,17 @@ import json
 
 from models.client import DEFAULT_MODEL, make_client
 from tools.calculator import calculate
-from tools.schemas import CALCULATOR
+from tools.sandbox import fetch_page, read_file, send_email
+from tools.schemas import CALCULATOR, FETCH_PAGE, READ_FILE, SEND_EMAIL
 
 MAX_STEPS = 10
-TOOL_FUNCTIONS = {"calculator": lambda args: calculate(args["expression"])}
-TOOL_SCHEMAS = [CALCULATOR]
+TOOL_FUNCTIONS = {
+    "calculator": lambda args: calculate(args["expression"]),
+    "read_file": lambda args: read_file(args["path"]),
+    "fetch_page": lambda args: fetch_page(args["url"]),
+    "send_email": lambda args: send_email(args["to"], args["subject"], args["body"]),
+}
+TOOL_SCHEMAS = [CALCULATOR, READ_FILE, FETCH_PAGE, SEND_EMAIL]
 SYSTEM_PROMPT = "You are a helpful assistant. Use the tools when they help. Give a short final answer."
 
 

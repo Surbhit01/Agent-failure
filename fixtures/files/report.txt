@@ -1,0 +1,2 @@
+Quarterly report (fake data)
+Sales: Q1=100, Q2=140, Q3=120, Q4=180.
